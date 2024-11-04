@@ -11,8 +11,7 @@ stages:
   - job: 'Build'
     displayName: 'Build job'
     pool:
-      vmImage: Codespace_self_hosted_agent
-
+      name: Codespace_self_hosted_agent
     variables:
       wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
       dotnetSdkVersion: '6.0.x'
@@ -69,7 +68,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-20.04'
+      name: Codespace_self_hosted_agent
     environment: spike
     variables:
     - group: Release
